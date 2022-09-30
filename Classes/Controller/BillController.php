@@ -6,7 +6,6 @@ namespace Zz\ZzBills\Controller;
 
 use Zz\ZzBills\Utility\BillNumerUtility;
 
-
 /**
  * This file is part of the "Rechnungen" Extension for TYPO3 CMS.
  *
@@ -36,36 +35,27 @@ class BillController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     {
         $this->billRepository = $billRepository;
     }
-
     public function initializeCreateAction()
     {
         if ($this->arguments->hasArgument('newBill')) {
-            
             $config = $this->arguments->getArgument('newBill')->getPropertyMappingConfiguration();
-            
             $config->allowProperties('billPosts');
             $config->forProperty('billPosts')->allowProperties('taxRate', 'quantity', 'singlePrice', 'name', 'subtitle');
             $config->allowCreationForSubProperty('billPosts');
-
             $config->allowProperties('billPosts');
             $config->forProperty('billPosts.*')->allowProperties('taxRate', 'quantity', 'singlePrice', 'name', 'subtitle');
             $config->allowCreationForSubProperty('billPosts.*');
             $config->allowModificationForSubProperty('billPosts.*');
-   
-
             $config->forProperty('date')->setTypeConverterOption(\TYPO3\CMS\Extbase\Property\TypeConverter\DateTimeConverter::class, \TYPO3\CMS\Extbase\Property\TypeConverter\DateTimeConverter::CONFIGURATION_DATE_FORMAT, 'd.m.Y');
         }
     }
     public function initializeUpdateAction()
     {
-
         if ($this->arguments->hasArgument('bill')) {
             $config = $this->arguments->getArgument('bill')->getPropertyMappingConfiguration();
-                        
             $config->allowProperties('billPosts');
             $config->forProperty('billPosts')->allowProperties('taxRate', 'quantity', 'singlePrice', 'name', 'subtitle');
             $config->allowCreationForSubProperty('billPosts');
-
             $config->allowProperties('billPosts');
             $config->forProperty('billPosts.*')->allowProperties('taxRate', 'quantity', 'singlePrice', 'name', 'subtitle');
             $config->allowCreationForSubProperty('billPosts.*');
@@ -110,7 +100,6 @@ class BillController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $user = \nn\t3::FrontendUser()->getCurrentUser();
         $this->view->assign('user', $user);
         $this->view->assign('number', $number);
-
         return $this->htmlResponse();
         return $this->htmlResponse();
     }

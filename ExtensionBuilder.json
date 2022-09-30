@@ -319,8 +319,8 @@
         "plugins": [
             {
                 "actions": {
-                    "controllerActionCombinations": "",
-                    "noncacheableActions": ""
+                    "controllerActionCombinations": "Bill=> list,show,new,create,edit,update,delte",
+                    "noncacheableActions": "Bill => list,show,new,create,edit,update,delte"
                 },
                 "description": "Rechnungsplugin",
                 "key": "bills",
@@ -345,7 +345,7 @@
     ],
     "storagePath": "\/home\/www\/p601362\/html\/typo3\/typo3conf\/ext\/",
     "log": {
-        "last_modified": "2022-09-28 04:40",
+        "last_modified": "2022-09-30 12:22",
         "extension_builder_version": "11.0.3",
         "be_user": " (4)"
     }

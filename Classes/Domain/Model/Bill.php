@@ -35,6 +35,13 @@ class Bill extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $date = null;
 
     /**
+     * recipientCompany
+     *
+     * @var string
+     */
+    protected $recipientCompany = '';
+
+    /**
      * recipientName
      *
      * @var string
@@ -91,13 +98,6 @@ class Bill extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")
      */
     protected $billPosts = null;
-
-    /**
-     * recipientCompany
-     *
-     * @var string
-     */
-    protected $recipientCompany = '';
 
     /**
      * __construct
