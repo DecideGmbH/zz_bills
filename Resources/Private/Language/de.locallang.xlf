@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:zz:bills/Resources/Private/Language/locallang.xlf" date="2022-01-22T15:16:23Z" product-name="zz_zauberzuber">
+		<header/>
+		<body>
+			<trans-unit id="tx_zzbills_domain_model_bill.number" resname="tx_zzbills_domain_model_bill.number">
+				<source></source>
+				<target>Rechnungsnummer</target>
+			</trans-unit>
+            <trans-unit id="tx_zzbills_domain_model_bill.date" resname="tx_zzbills_domain_model_bill.date">
+				<source></source>
+				<target>Rechnungs Datum</target>
+			</trans-unit>
+            <trans-unit id="tx_zzbills_domain_model_bill.recipient_name" resname="tx_zzbills_domain_model_bill.recipient_name">
+				<source></source>
+				<target>Rechnungsempfänger</target>
+			</trans-unit>
+            <trans-unit id="tx_zzbills_domain_model_bill.recipient_address" resname="tx_zzbills_domain_model_bill.recipient_address">
+				<source></source>
+				<target>Adresse</target>
+			</trans-unit>
+            <trans-unit id="tx_zzbills_domain_model_bill.recipient_zip" resname="tx_zzbills_domain_model_bill.recipient_zip">
+				<source></source>
+				<target>PLZ</target>
+			</trans-unit>
+            <trans-unit id="tx_zzbills_domain_model_bill.recipient_city" resname="tx_zzbills_domain_model_bill.recipient_city">
+				<source></source>
+				<target>Ort</target>
+			</trans-unit>
+            <trans-unit id="tx_zzbills_domain_model_bill.recipient_company" resname="tx_zzbills_domain_model_bill.recipient_company">
+				<source></source>
+				<target>Firma</target>
+			</trans-unit>
+            <trans-unit id="tx_zzbills_domain_model_bill.recipient_mail" resname="tx_zzbills_domain_model_bill.recipient_mail">
+				<source></source>
+				<target>E-Mail</target>
+			</trans-unit>
+            <trans-unit id="tx_zzbills_domain_model_bill.recipient_phone" resname="tx_zzbills_domain_model_bill.recipient_phone">
+				<source></source>
+				<target>Telefonnummer</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
+
+

@@ -1,0 +1,35 @@
+<div class="card card-default child-container-inner" data-index="{index}" id="child-{index}">
+    <p class="btn btn-warning btn-remove btn-remove-child float-right" title="Entfernen">Entfernen</p>
+    <div class="card-body">
+         <h5 class="card-title">Posten</h5>
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="form-group">
+                    <label for="post-tax-{index}">Mwst. Satz *</label>
+                    <f:form.select class="form-control required-tax" id="post-tax-{index}" name="{object}[billPosts][{index}][taxRate]" options="{
+                        19: '19', 
+                        7: '7', 
+                        0: '0'
+                        }" 
+                    />
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <label for="singlePrice-{index}">Einzelpreis</label>
+                <f:form.textfield value="{post.singlePrice}" name="{object}[billPosts][{index}][singlePrice]" id="singlePrice-{index}" class="form-control" />
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <label for="quantity-{index}">Menge</label>
+                <f:form.textfield value="{post.quantity}" name="{object}[billPosts][{index}][quantity]" id="quantity-{index}" class="form-control" />
+            </div>
+            <div class="col-sm-6 form-group">
+                <label for="name-{index}">Name</label>
+                <f:form.textfield value="{post.name}" name="{object}[billPosts][{index}][name]" id="name-{index}" class="form-control" />
+            </div>
+            <div class="col-sm-6 form-group">
+                <label for="subtitle-{index}">Untertitel</label>
+                <f:form.textfield value="{post.subtitle}" name="{object}[billPosts][{index}][subtitle]" id="subtitle-{index}" class="form-control" />
+            </div>
+        </div>
+    </div>
+</div>

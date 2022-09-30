@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:zz_bills/Resources/Private/Language/locallang.xlf" date="2022-09-28T16:40:59Z" product-name="zz_bills">
+		<header/>
+		<body>
+			<trans-unit id="tx_zzbills_domain_model_bill" resname="tx_zzbills_domain_model_bill">
+				<source>Bill</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_bill.number" resname="tx_zzbills_domain_model_bill.number">
+				<source>Number</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_bill.date" resname="tx_zzbills_domain_model_bill.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_bill.recipient_company" resname="tx_zzbills_domain_model_bill.recipient_company">
+				<source>Recipient Company</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_bill.recipient_name" resname="tx_zzbills_domain_model_bill.recipient_name">
+				<source>Recipient Name</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_bill.recipient_address" resname="tx_zzbills_domain_model_bill.recipient_address">
+				<source>Recipient Address</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_bill.recipient_zip" resname="tx_zzbills_domain_model_bill.recipient_zip">
+				<source>Recipient Zip</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_bill.recipient_city" resname="tx_zzbills_domain_model_bill.recipient_city">
+				<source>Recipient City</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_bill.recipient_mail" resname="tx_zzbills_domain_model_bill.recipient_mail">
+				<source>Recipient Mail</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_bill.recipient_phone" resname="tx_zzbills_domain_model_bill.recipient_phone">
+				<source>Recipient Phone</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_bill.data" resname="tx_zzbills_domain_model_bill.data">
+				<source>Data</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_bill.bill_posts" resname="tx_zzbills_domain_model_bill.bill_posts">
+				<source>Bill Posts</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_post" resname="tx_zzbills_domain_model_post">
+				<source>Post</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_post.number" resname="tx_zzbills_domain_model_post.number">
+				<source>Number</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_post.tax_rate" resname="tx_zzbills_domain_model_post.tax_rate">
+				<source>Tax Rate</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_post.name" resname="tx_zzbills_domain_model_post.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_post.subtitle" resname="tx_zzbills_domain_model_post.subtitle">
+				<source>Subtitle</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_post.quantity" resname="tx_zzbills_domain_model_post.quantity">
+				<source>Quantity</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_post.single_price" resname="tx_zzbills_domain_model_post.single_price">
+				<source>Single Price</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:zz_bills/Resources/Private/Language/locallang_csh_tx_zzbills_domain_model_bill.xlf" date="2022-09-28T16:40:59Z" product-name="zz_bills">
+		<header/>
+		<body>
+			<trans-unit id="number.description" resname="number.description">
+				<source>number</source>
+			</trans-unit>
+			<trans-unit id="date.description" resname="date.description">
+				<source>date</source>
+			</trans-unit>
+			<trans-unit id="recipient_company.description" resname="recipient_company.description">
+				<source>recipientCompany</source>
+			</trans-unit>
+			<trans-unit id="recipient_name.description" resname="recipient_name.description">
+				<source>recipientName</source>
+			</trans-unit>
+			<trans-unit id="recipient_address.description" resname="recipient_address.description">
+				<source>recipientAddress</source>
+			</trans-unit>
+			<trans-unit id="recipient_zip.description" resname="recipient_zip.description">
+				<source>recipientZip</source>
+			</trans-unit>
+			<trans-unit id="recipient_city.description" resname="recipient_city.description">
+				<source>recipientCity</source>
+			</trans-unit>
+			<trans-unit id="recipient_mail.description" resname="recipient_mail.description">
+				<source>recipientMail</source>
+			</trans-unit>
+			<trans-unit id="recipient_phone.description" resname="recipient_phone.description">
+				<source>recipientPhone</source>
+			</trans-unit>
+			<trans-unit id="data.description" resname="data.description">
+				<source>data</source>
+			</trans-unit>
+			<trans-unit id="bill_posts.description" resname="bill_posts.description">
+				<source>billPosts</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

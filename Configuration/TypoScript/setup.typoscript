@@ -1,0 +1,104 @@
+plugin.tx_zzbills_bills {
+    view {
+        templateRootPaths.0 = EXT:zz_bills/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_zzbills_bills.view.templateRootPath}
+        partialRootPaths.0 = EXT:zz_bills/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_zzbills_bills.view.partialRootPath}
+        layoutRootPaths.0 = EXT:zz_bills/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_zzbills_bills.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_zzbills_bills.persistence.storagePid}
+        #recursive = 1
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+
+page {
+    includeJSFooter {
+        zzBills = EXT:zz_bills/Resources/Public/JavaScript/zzBills.js
+    }
+}
+
+plugin.tx_pdfviewhelpers.settings {
+	config {
+		jpgQuality = 80
+		fonts {
+			addTTFFont {
+				grenze {
+					path = EXT:bootstrap_zauberpage/Resources/Public/Fonts/Grenze.ttf
+				}
+				ibm {
+					path = EXT:bootstrap_zauberpage/Resources/Public/Fonts/Ibm.ttf
+				}
+			}
+		}
+	}
+	document {
+
+	}
+	header {
+
+	}
+	page {
+
+	}
+	generalText {
+		color = #555
+	}
+    html {
+        fontFamily = ibm
+    }
+	text {
+        fontFamily = ibm
+		types {
+			header {
+				color = #8C8C8C
+			}
+			quote {
+				fontStyle = italic
+				alignment = center
+				padding {
+					top = 10
+					right = 50
+					bottom = 10
+					left = 50
+				}
+			}
+		}
+	}
+	headline {
+		fontFamily = grenze
+		fontStyle = bold
+		types {
+			h1 {
+				fontSize = 28
+				color = #ff642c
+			}
+			h2 {
+				fontSize = 22
+				color = #ff642c
+			}
+			h3 {
+				fontSize = 14
+				fontFamily = grenze
+				fontStyle = bold
+			}
+		}
+	}
+	list {
+		color = #000
+		fontStyle = bold
+		bulletColor = #BEDB39
+		padding {
+			left = 2
+		}
+	}
+}

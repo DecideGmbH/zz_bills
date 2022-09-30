@@ -1,0 +1,151 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:pdf="http://typo3.org/ns/Bithost/Pdfviewhelpers/ViewHelpers"
+	  xsi:schemaLocation="http://typo3.org/ns/Bithost/Pdfviewhelpers/ViewHelpers https://pdfviewhelpers.bithost.ch/schema/2.1.xsd"
+	  data-namespace-typo3-fluid="true">
+
+<pdf:document outputPath="fileadmin/Dokumente/PDF/Rechnung{order.uid}.pdf" title="Rechnung{order.uid}" outputDestination="inline" sourceFile="EXT:zz_zauberzuber/Resources/Private/Templates/PDF/briefpapier.pdf">
+	<pdf:footer>
+		<pdf:text posX="165" posY="280" fontSize="6">{pdf:getPageNumberAlias()} | {pdf:getTotalNumberOfPagesAlias()}</pdf:text>
+	</pdf:footer>
+
+    
+    <pdf:header>
+        <pdf:text alignment="left" color="#86B3BC" paragraphSpacing="0" fontSize="6" posY="40">
+            ZauberZuber | Grimmstraße 26 | 90491 Nürnberg
+        </pdf:text>
+        <pdf:text alignment="left" color="#000" fontSize="9" paragraphSpacing="0" posY="47" >
+            {bill.recipientCompany}
+            {bill.recipientName}
+            {bill.recipientAddress}
+            {bill.recipientZip}  {bill.recipientCity}
+        </pdf:text>
+        <pdf:text alignment="left" fontSize="8" paragraphSpacing="0" posY="67" posX="140" color="#86B3BC">Rechnungs-Datum:</pdf:text>
+        <pdf:text alignment="left" fontSize="8" color="#000" fontSize="8" paragraphSpacing="0" posX="170" posY="67" >{bill.date->f:format.date(format:'d.m.Y')}</pdf:text>
+        
+        <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posY="71" posX="140" color="#86B3BC">Rechnungs-Nummer:</pdf:text>
+        <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posX="170" posY="71">{bill.number}</pdf:text>
+    </pdf:header>
+	<pdf:page importPage="1" margin="{top: 90, right: 20, bottom: 10, left:18}" importPageOnAutomaticPageBreak="0">
+        <pdf:headline alignment="left" color="#86B3BC" paragraphSpacing="0" fontSize="25">
+            Rechnung
+        </pdf:headline>
+        <pdf:avoidPageBreakInside>
+                <pdf:multiColumn>
+                     <pdf:column width="9%">
+                        <pdf:text alignment="left" color="#AAAAAA" fontSize="7">Pos</pdf:text>
+                    </pdf:column>
+                    <pdf:column width="9%">
+                        <pdf:text alignment="left" color="#AAAAAA" fontSize="7">Menge</pdf:text>
+                    </pdf:column>
+                    <pdf:column width="45%">
+                        <pdf:text alignment="left" color="#AAAAAA" fontSize="7">Artikel.</pdf:text>
+                    </pdf:column>
+                    <pdf:column width="14%">
+                        <pdf:text alignment="left" color="#AAAAAA" fontSize="7">Einzelpreis</pdf:text>
+                    </pdf:column>
+                    <pdf:column width="8%">
+                        <pdf:text alignment="left" color="#AAAAAA" fontSize="7">Steuer</pdf:text>
+                    </pdf:column>
+                    <pdf:column width="15%">
+                        <pdf:text alignment="left" color="#AAAAAA" fontSize="7">Summe</pdf:text>
+                    </pdf:column>
+                </pdf:multiColumn>
+                <pdf:graphics.line padding="{top:0}" style="{color: '#AAAAAA', margin-top:'-15px'}"/>
+                <f:for each="{bill.billPosts}" as="post" iteration="i">
+                    <pdf:multiColumn>
+                        <pdf:column width="9%">
+                            <pdf:text alignment="left" color="#000" fontSize="9"><f:format.padding padLength="2" padType="left" padString="0">{i.cycle}</f:format.padding></pdf:text>
+                        </pdf:column>
+                        <pdf:column width="9%">
+                            <pdf:text alignment="left" color="#000" fontSize="9"><f:format.padding padLength="2" padType="left" padString="0">{post.quantity}</f:format.padding></pdf:text>
+                        </pdf:column>
+                        <pdf:column width="45%" padding="{bottom:2}" >
+                            <pdf:text alignment="left" color="#000" fontSize="9">{post.name}</pdf:text>
+                            <f:if condition="{post.subtitle}">
+                                <pdf:text alignment="left" lineHeight="0" color="#AAAAAA" fontSize="7">{post.subtitle}</pdf:text>
+                            </f:if>
+                        </pdf:column>
+                        <pdf:column width="14%">
+                             <pdf:text alignment="left" color="#000" fontSize="9"><f:format.number>{post.singlePrice}</f:format.number> €</pdf:text>
+                        </pdf:column>
+                        <pdf:column width="8%">
+                             <pdf:text alignment="left" color="#000" fontSize="9">{post.taxRate}%</pdf:text>
+                        </pdf:column>
+                        <pdf:column width="15%">
+                             <pdf:text alignment="left" color="#000" fontSize="9"><f:format.number>{post.summBrutto}</f:format.number> €</pdf:text>
+                             <f:if condition="{post.summBrutto} >= 0">
+                                <pdf:text alignment="left" lineHeight="0" color="#AAAAAA" fontSize="7">inkl. <f:format.number>{post.tax}</f:format.number>€ Mwst.</pdf:text>
+                             </f:if>
+                        </pdf:column>
+                    </pdf:multiColumn>
+                </f:for>
+                <pdf:graphics.line padding="{top:0}" style="{color: '#AAAAAA', margin-top:'-15px'}"/>
+
+                <pdf:multiColumn>
+                    <pdf:column width="80%">
+                         <pdf:text alignment="right" color="#000" fontSize="9">Gesamtpreis (Nettp)</pdf:text>
+                    </pdf:column>
+                    <pdf:column width="5%"></pdf:column>
+                    <pdf:column width="15%">
+                         <pdf:text alignment="left" color="#000" fontSize="9"><f:format.number>{bill.summNetto}</f:format.number> €</pdf:text>
+                    </pdf:column>    
+                </pdf:multiColumn>
+                <pdf:multiColumn>
+                    <pdf:column width="80%">
+                         <pdf:text alignment="right" color="#000" fontSize="9">Gesamtpreis (Brutto)</pdf:text>
+                    </pdf:column>
+                    <pdf:column width="5%"></pdf:column>
+                    <pdf:column width="15%">
+                         <pdf:text alignment="left" color="#000" fontSize="9"><f:format.number>{bill.summBrutto}</f:format.number> €</pdf:text>
+                    </pdf:column>    
+                </pdf:multiColumn>
+                <f:for each="{bill.taxArray}" key="key" as="value">
+                    <pdf:multiColumn>
+                        <pdf:column width="80%">
+                            <pdf:text alignment="right" color="#000" lineHeight=".5" fontSize="7">{key} % Mwst.</pdf:text>
+                        </pdf:column>
+                        <pdf:column width="5%"></pdf:column>
+                        <pdf:column width="15%">
+                            <pdf:text alignment="left" color="#000" lineHeight=".5" fontSize="7"><f:format.number>{value}</f:format.number>€</pdf:text>
+                        </pdf:column>
+                    </pdf:multiColumn>
+                </f:for>
+                <pdf:multiColumn>
+                    <pdf:column width="80%">
+                        <pdf:text alignment="right" color="#000" lineHeight=".5" fontSize="7">Summe Mwst.:</pdf:text>
+                    </pdf:column>
+                    <pdf:column width="5%"></pdf:column>
+                    <pdf:column width="15%">
+                        <pdf:text alignment="left" color="#000" lineHeight=".5" fontSize="7"><f:format.number>{bill.tax}</f:format.number>€</pdf:text>
+                    </pdf:column>
+                </pdf:multiColumn>
+            <pdf:multiColumn>
+                <pdf:column width="10%">
+   
+                </pdf:column>
+                <pdf:column width="60%">
+          
+                </pdf:column>
+                <pdf:column width="15%">
+   
+                </pdf:column>
+                <pdf:column width="15%">
+
+                </pdf:column>
+            </pdf:multiColumn>
+            
+            <pdf:multiColumn>
+                <pdf:column width="75%">
+  
+                </pdf:column>
+                <pdf:column width="25%">
+
+                </pdf:column>
+            </pdf:multiColumn>
+        </pdf:avoidPageBreakInside>
+	</pdf:page>
+</pdf:document>
+
+</html>

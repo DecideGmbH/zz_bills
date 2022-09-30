@@ -1,0 +1,104 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="card">
+    <div class="card-body">
+        <h3>Rechnungsdaten</h3>
+         <div class="row">
+             <div class="col-xl-6">
+                <div class="mb-3">                
+                    <label for="number" class="form-label"><f:translate key="tx_zzbills_domain_model_bill.number" /></label>
+                    <f:form.textfield class="form-control" property="number" id="number" value="{number}" readonly="1" />
+                </div>
+            </div>
+             <div class="col-xl-6">
+                <div class="mb-3">             
+                    <label for="date" class="form-label"><f:translate key="tx_zzbills_domain_model_bill.date" /></label>
+                    <f:form.textfield class="form-control" value="{bill.date->f:format.date(format:'d.m.Y')}" additionalAttributes='{data-provide:"datepicker-inline", data-date-format:"dd.mm.yyyy"}' property="date" id="date" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="mb-3">                
+                    <label for="recipientName" class="form-label"><f:translate key="tx_zzbills_domain_model_bill.recipient_name" /></label>
+                    <f:form.textfield class="form-control" property="recipientName" id="recipientName" />
+                </div>
+            </div>  
+            <div class="col-xl-6">
+                <div class="mb-3">                
+                    <label for="recipientCompany" class="form-label"><f:translate key="tx_zzbills_domain_model_bill.recipient_company" /></label>
+                    <f:form.textfield class="form-control" property="recipientCompany" id="recipientCompany" />
+                </div>
+            </div>  
+            <div class="col-xl-6">
+                <div class="mb-3">                
+                    <label for="recipientAddress" class="form-label"><f:translate key="tx_zzbills_domain_model_bill.recipient_address" /></label>
+                    <f:form.textfield class="form-control" property="recipientAddress" id="recipientAddress" />
+                </div>
+            </div>   
+            <div class="col-xl-6">
+                <div class="mb-3">                
+                    <label for="recipientZip" class="form-label"><f:translate key="tx_zzbills_domain_model_bill.recipient_zip" /></label>
+                    <f:form.textfield class="form-control" property="recipientZip" id="recipientZip" />
+                </div>
+            </div>  
+            <div class="col-xl-6">
+                <div class="mb-3">                
+                    <label for="recipientCity" class="form-label"><f:translate key="tx_zzbills_domain_model_bill.recipient_city" /></label>
+                    <f:form.textfield class="form-control" property="recipientCity" id="recipientCity" />
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="mb-3">                
+                    <label for="recipientMail" class="form-label"><f:translate key="tx_zzbills_domain_model_bill.recipient_mail" /></label>
+                    <f:form.textfield class="form-control" property="recipientMail" id="recipientMail" />
+                </div>
+            </div>  
+            <div class="col-xl-6">
+                <div class="mb-3">                
+                    <label for="recipientPhone" class="form-label"><f:translate key="tx_zzbills_domain_model_bill.recipient_phone" /></label>
+                    <f:form.textfield class="form-control" property="recipientPhone" id="recipientPhone" />
+                </div>
+            </div>
+            <hr/>            
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p class="btn-add-new-child btn btn-primary">Posten hinzufügen</p>
+            </div>
+            <div class="childs-container">
+                <f:if condition="{bill.billPosts}">
+                    <f:for each="{bill.billPosts}" as="post" iteration="i">
+                        <f:render partial="Post" arguments="{post:post,index:i.index,object:'bill'}"/>
+                    </f:for>
+                </f:if>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <h3>Zuordnung</h3>
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="mb-3">                
+                    <label for="branches" class="form-label"><f:translate key="LLL:EXT:zz_zauberzuber/Resources/Private/Language/locallang.xml:tx_zzzauberzuber_domain_model_expenditure.branches" /></label>
+                    <f:form.select class="form-control select2 select2-multiple" additionalAttributes='{data-toggle="select2"}' multiple="true" property="branches" optionLabelField="name" optionValueField="uid" id="branches" options="{branches}" />
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="mb-3">                
+                    <label for="tubs" class="form-label"><f:translate key="LLL:EXT:zz_zauberzuber/Resources/Private/Language/locallang.xml:tx_zzzauberzuber_domain_model_expenditure.tubs" /></label>
+                    <f:form.select class="form-control select2 select2-multiple" additionalAttributes='{data-toggle="select2"}' multiple="true" property="tubs" optionLabelField="name" optionValueField="uid" id="tubs" options="{tubs}" />
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="mb-3">                
+                    <label for="tags" class="form-label"><f:translate key="LLL:EXT:zz_zauberzuber/Resources/Private/Language/locallang.xml:tx_zzzauberzuber_domain_model_expenditure.tags" /></label>
+                    <f:form.select class="form-control select2 select2-multiple" additionalAttributes='{data-toggle="select2"}' multiple="true" property="tags" optionLabelField="name" optionValueField="uid" id="tags" options="{tags}" />
+                </div>
+            </div>
+            <div class="col-12 text-right">
+                <f:form.submit value="Absenden" class="btn btn-primary" />
+            </div>
+        </div>
+        <!-- end row -->
+    </div> <!-- end card-body -->
+</div> <!-- end card-->

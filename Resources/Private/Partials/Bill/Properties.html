@@ -1,0 +1,36 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<table class="tx-zz-bills">
+	<tr>
+		<td><f:translate key="tx_zzbills_domain_model_bill.number" /></td>
+		<td>{bill.number}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_zzbills_domain_model_bill.date" /></td>
+		<td>{bill.date -> f:format.date()}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_zzbills_domain_model_bill.recipient_name" /></td>
+		<td>{bill.recipientName}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_zzbills_domain_model_bill.recipient_address" /></td>
+		<td>{bill.recipientAddress}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_zzbills_domain_model_bill.recipient_zip" /></td>
+		<td>{bill.recipientZip}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_zzbills_domain_model_bill.recipient_city" /></td>
+		<td>{bill.recipientCity}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_zzbills_domain_model_bill.recipient_mail" /></td>
+		<td>{bill.recipientMail}</td>
+	</tr>
+	<tr>
+		<td><f:translate key="tx_zzbills_domain_model_bill.recipient_phone" /></td>
+		<td>{bill.recipientPhone}</td>
+	</tr>
+</table>
+</html>
