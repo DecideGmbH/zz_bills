@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Zz\ZzBills\Controller;
 
-use Zz\ZzBills\Utility\BillNumerUtility;
+use Zz\ZzBills\Utility\BillNumberUtility;
 
 /**
  * This file is part of the "Rechnungen" Extension for TYPO3 CMS.
