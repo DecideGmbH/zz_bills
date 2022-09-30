@@ -44,7 +44,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
                         </div><!-- end col-->
                         </f:comment>
                     </div>
-                    <p>Fehlende Funktionen: versenden,storno,mahnen</p>
+                    <p>Fehlende Funktionen: versenden,mahnen</p>
                     <div class="table-responsive">
                         <table class="table table-centered w-100 dt-responsive nowrap " id="basic-datatable">
                             <thead class="table-light">
@@ -63,7 +63,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
                                         <td>{bill.date -> f:format.date()}</td>
                                         <td class="table-action">
                                             <f:link.action action="show" arguments="{bill : bill}" class="action-icon" target="_blank"><i class="mdi mdi-eye"></i></f:link.action>
-                                            <f:link.action action="edit" arguments="{bill : bill}" class="action-icon" target="_blank"><i class="mdi mdi-pen"></i></f:link.action>
+                                            <f:if condition="{bill.stornoPossible}">
+                                                <f:link.action action="edit" arguments="{bill : bill}" class="action-icon" target="_blank"><i class="mdi mdi-pen"></i></f:link.action>
+                                                <f:link.action action="delete" arguments="{bill : bill}" class="action-icon" target="_blank">Storno</f:link.action>
+                                            </f:if>
                                         </td>
                                     </tr>
                                 </f:for>

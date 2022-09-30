@@ -140,7 +140,7 @@ class BillController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $this->billRepository->update($bill);
         $this->redirect('list');
     }
-
+    
     /**
      * action delete
      *
@@ -148,8 +148,35 @@ class BillController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      */
     public function deleteAction(\Zz\ZzBills\Domain\Model\Bill $bill)
     {
-        $this->addFlashMessage('The object was deleted. Please be aware that this action is publicly accessible unless you implement an access check. See https://docs.typo3.org/p/friendsoftypo3/extension-builder/master/en-us/User/Index.html', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::WARNING);
-        $this->billRepository->remove($bill);
+        $storno = $this->deepcopy($bill);
+        $storno->setNumber($storno->getNumber()."-S");
+        foreach($storno->getBillPosts() as $post) {
+            $post->setSinglePrice($post->getSinglePrice()*-1);
+        }
+        $this->billRepository->add($storno);
+        
+        $this->addFlashMessage('Storno wurde erstellt.', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
         $this->redirect('list');
+    }
+    
+    private function deepcopy($object)
+    {
+        $clone = $this->objectManager->get(get_class($object));
+        $properties = \TYPO3\CMS\Extbase\Reflection\ObjectAccess::getGettableProperties($object);
+        foreach ($properties as $propertyName => $propertyValue) {
+            if ($propertyValue instanceof \TYPO3\CMS\Extbase\Persistence\ObjectStorage) {
+                $v = $this->objectManager->get(\TYPO3\CMS\Extbase\Persistence\ObjectStorage::class);
+                foreach($propertyValue as $subObject) {
+                    $subClone = $this->deepcopy($subObject);
+                    $v->attach($subClone);
+                }
+            } else { 
+                $v = $propertyValue;
+            }
+            if ($v !== null) {
+                \TYPO3\CMS\Extbase\Reflection\ObjectAccess::setProperty($clone, $propertyName, $v);
+            }
+        }
+        return $clone;
     }
 }

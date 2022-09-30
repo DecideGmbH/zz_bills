@@ -29,4 +29,11 @@ class BillRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $query->matching($query->like('number', "%-".$prefix."-%"));
         return $query->execute()->count();
     }
+    
+    public function countByNumberStorno($number) {
+        $query = $this->createQuery();
+        $query->getQuerySettings()->setRespectStoragePage(false);
+        $query->matching($query->like('number', "%".$number."%"));
+        return $query->execute()->count();
+    }
 }

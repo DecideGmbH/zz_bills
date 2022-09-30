@@ -406,4 +406,38 @@ class Bill extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->recipientCompany = $recipientCompany;
     }
+    
+    /**
+     * storno
+     *
+     * @return bool
+     */
+    public function getIsStorno()
+    {
+        if(str_contains($this->getNumber(),"-S")){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    /**
+     * Is Storno possible
+     *
+     * @return bool
+     */
+    public function getStornoPossible()
+    {
+        if(str_contains($this->getNumber(),"-S")){
+            return false;
+        } else {
+            $billRepository = \nn\t3::injectClass( \Zz\ZzBills\Domain\Repository\BillRepository::class );
+            $count = $billRepository->countByNumberStorno($this->getNumber());
+            if($count <= 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 }

@@ -12,8 +12,8 @@
 
     
     <pdf:header>
-        <pdf:text alignment="left" color="#86B3BC" paragraphSpacing="0" fontSize="6" posY="40">
-            ZauberZuber | Grimmstraße 26 | 90491 Nürnberg
+        <pdf:text alignment="left" color="#000" paragraphSpacing="0" fontSize="6" posY="40">
+  
         </pdf:text>
         <pdf:text alignment="left" color="#000" fontSize="9" paragraphSpacing="0" posY="47" >
             {bill.recipientCompany}
@@ -21,19 +21,15 @@
             {bill.recipientAddress}
             {bill.recipientZip}  {bill.recipientCity}
         </pdf:text>
-        <pdf:text alignment="left" fontSize="8" paragraphSpacing="0" posY="67" posX="140" color="#86B3BC">Rechnungs-Datum:</pdf:text>
-        <pdf:text alignment="left" fontSize="8" color="#000" fontSize="8" paragraphSpacing="0" posX="170" posY="67" >{bill.date->f:format.date(format:'d.m.Y')}</pdf:text>
+        <pdf:text alignment="left" fontSize="8" paragraphSpacing="0" posY="67" posX="138" color="#000">Rechnungs-Datum:</pdf:text>
+        <pdf:text alignment="left" fontSize="8" color="#000" fontSize="8" paragraphSpacing="0" posX="168" posY="67" >{bill.date->f:format.date(format:'d.m.Y')}</pdf:text>
         
-        <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posY="71" posX="140" color="#86B3BC">Rechnungs-Nummer:</pdf:text>
-        <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posX="170" posY="71">{bill.number}</pdf:text>
-        
+        <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posY="71" posX="138" color="#000">Rechnungs-Nummer:</pdf:text>
+        <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posX="168" posY="71">{bill.number}</pdf:text>
+                
         <f:if condition="{bill.recipientPhone}">
-            <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posY="75" posX="140" color="#86B3BC">Telefon:</pdf:text>
-            <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posX="170" posY="75">{bill.recipientPhone}</pdf:text>
-        </f:if>
-        <f:if condition="{bill.recipientMail}">
-            <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posY="80" posX="140" color="#86B3BC">E-Mail:</pdf:text>
-            <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posX="170" posY="80">{bill.recipientMail}</pdf:text>
+            <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posY="75" posX="138" color="#000">Telefon:</pdf:text>
+            <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posX="168" posY="75">{bill.recipientPhone}</pdf:text>
         </f:if>
     </pdf:header>
 	<pdf:page importPage="1" margin="{top: 90, right: 20, bottom: 10, left:18}" importPageOnAutomaticPageBreak="0">
