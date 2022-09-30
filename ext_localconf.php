@@ -6,11 +6,11 @@ defined('TYPO3') || die();
         'ZzBills',
         'Bills',
         [
-            \Zz\ZzBills\Controller\BillController::class => 'list, show, new, create, edit, update, delte'
+            \Zz\ZzBills\Controller\BillController::class => 'list, show, new, create, edit, update, delete'
         ],
         // non-cacheable actions
         [
-            \Zz\ZzBills\Controller\BillController::class => 'list, show, new, create, edit, update, delte'
+            \Zz\ZzBills\Controller\BillController::class => 'list, show, new, create, edit, update, delete'
         ]
     );
 

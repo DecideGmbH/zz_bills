@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-md-4 col-sm-6">
-                <label for="singlePrice-{index}">Einzelpreis</label>
+                <label for="singlePrice-{index}">Einzelpreis (<f:if condition="{settings.style} == B2B"><f:then>exkl. Steuer</f:then><f:else>Inkl. Steuer</f:else></f:if>)</label>
                 <f:form.textfield value="{post.singlePrice}" name="{object}[billPosts][{index}][singlePrice]" id="singlePrice-{index}" class="form-control" />
             </div>
             <div class="col-md-4 col-sm-6">

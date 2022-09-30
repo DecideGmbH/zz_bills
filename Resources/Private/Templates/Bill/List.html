@@ -44,12 +44,13 @@ Otherwise your changes will be overwritten the next time you save the extension 
                         </div><!-- end col-->
                         </f:comment>
                     </div>
+                    <p>Fehlende Funktionen: versenden,storno,mahnen</p>
                     <div class="table-responsive">
                         <table class="table table-centered w-100 dt-responsive nowrap " id="basic-datatable">
                             <thead class="table-light">
                                 <tr>
                                     <th>Rechnungsnummer</th>
-                                    <th>Summe</th>
+                                    <th>Summe (Brutto)</th>
                                     <th>Rechnungsdatum</th>
                                     <th>Aktionen</th>
                                 </tr>
@@ -57,12 +58,12 @@ Otherwise your changes will be overwritten the next time you save the extension 
                             <tbody>
                                 <f:for each="{bills}" as="bill">
                                     <tr>
-                                        <td>{bill.number} €</td>
+                                        <td>{bill.number}</td>
                                         <td>{bill.summBrutto} €</td>
                                         <td>{bill.date -> f:format.date()}</td>
                                         <td class="table-action">
                                             <f:link.action action="show" arguments="{bill : bill}" class="action-icon" target="_blank"><i class="mdi mdi-eye"></i></f:link.action>
-                                            <f:link.action action="edit" arguments="{bill : bill}" class="action-icon" target="_blank"><i class="mdi mdi-pen"></i>edit</f:link.action>
+                                            <f:link.action action="edit" arguments="{bill : bill}" class="action-icon" target="_blank"><i class="mdi mdi-pen"></i></f:link.action>
                                         </td>
                                     </tr>
                                 </f:for>

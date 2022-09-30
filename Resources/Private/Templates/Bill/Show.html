@@ -26,6 +26,15 @@
         
         <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posY="71" posX="140" color="#86B3BC">Rechnungs-Nummer:</pdf:text>
         <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posX="170" posY="71">{bill.number}</pdf:text>
+        
+        <f:if condition="{bill.recipientPhone}">
+            <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posY="75" posX="140" color="#86B3BC">Telefon:</pdf:text>
+            <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posX="170" posY="75">{bill.recipientPhone}</pdf:text>
+        </f:if>
+        <f:if condition="{bill.recipientMail}">
+            <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posY="80" posX="140" color="#86B3BC">E-Mail:</pdf:text>
+            <pdf:text alignment="left" color="#000" fontSize="8" paragraphSpacing="0" posX="170" posY="80">{bill.recipientMail}</pdf:text>
+        </f:if>
     </pdf:header>
 	<pdf:page importPage="1" margin="{top: 90, right: 20, bottom: 10, left:18}" importPageOnAutomaticPageBreak="0">
         <pdf:headline alignment="left" color="#86B3BC" paragraphSpacing="0" fontSize="25">
@@ -85,7 +94,7 @@
 
                 <pdf:multiColumn>
                     <pdf:column width="80%">
-                         <pdf:text alignment="right" color="#000" fontSize="9">Gesamtpreis (Nettp)</pdf:text>
+                         <pdf:text alignment="right" color="#000" fontSize="9">Gesamtpreis (Netto)</pdf:text>
                     </pdf:column>
                     <pdf:column width="5%"></pdf:column>
                     <pdf:column width="15%">

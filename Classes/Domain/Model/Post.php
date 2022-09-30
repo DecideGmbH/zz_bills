@@ -187,20 +187,50 @@ class Post extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->subtitle = $subtitle;
     }
+    
     public function getTax()
     {
-        $summ = $this->getSummBrutto();
-        $tax = $summ * ($this->getTaxRate() / 100);
+        $settings = \nn\t3::Settings()->getSettings( 'tx_zzbills_bills' );
+        $style = $settings['style'];
+
+        if($style == "B2B") {
+            $summ = $this->getSummNetto();
+            $tax = $summ * ($this->getTaxRate() / 100);
+        } else {
+            $summ = $this->getSummBrutto();
+            $tax = $summ * ($this->getTaxRate() / 100);
+        }
+
         return $tax;
     }
+    
     public function getSummBrutto()
     {
-        $summ = $this->getSinglePrice() * $this->getQuantity();
+        $settings = \nn\t3::Settings()->getSettings( 'tx_zzbills_bills' );
+        $style = $settings['style'];
+
+        if($style == "B2B") {
+            $tax = $this->getTax();
+            $summ = ($this->getSinglePrice() * $this->getQuantity()) + $tax;
+        } else {
+            $summ = $this->getSinglePrice() * $this->getQuantity();
+        }
+        
         return $summ;
     }
+    
     public function getSummNetto()
     {
-        $summ = $this->getSummBrutto() - $this->getTax();
+        $settings = \nn\t3::Settings()->getSettings( 'tx_zzbills_bills' );
+        $style = $settings['style'];
+
+        if($style == "B2B") {
+            $summ = ($this->getSinglePrice() * $this->getQuantity());
+        } else {
+            $summ = $this->getSummBrutto() - $this->getTax();
+        }
+        
         return $summ;
     }
+    
 }

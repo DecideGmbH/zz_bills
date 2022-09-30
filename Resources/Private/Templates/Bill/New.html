@@ -29,7 +29,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
                 <f:render partial="Bill/FormFields" arguments="{_all}" />
             </f:form>
             <div class="child-container d-none">
-                <f:render partial="Post" arguments="{index:'INDEX',object:'tx_zzbills_bills[newBill]'}" />
+                <f:render partial="Post" arguments="{index:'INDEX',object:'tx_zzbills_bills[newBill]',settings:settings}" />
             </div>
         </div>
     </div>

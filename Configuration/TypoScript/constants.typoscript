@@ -11,4 +11,8 @@ plugin.tx_zzbills_bills {
         # cat=plugin.tx_zzbills_bills//a; type=string; label=Default storage PID
         storagePid =
     }
+    settings {
+        # cat=plugin.tx_zzbills_bills//a; type=string; label=B2B oder B2C
+        style =
+    }
 }

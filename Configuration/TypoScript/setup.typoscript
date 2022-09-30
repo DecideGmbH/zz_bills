@@ -19,6 +19,9 @@ plugin.tx_zzbills_bills {
     mvc {
         #callDefaultActionIfActionCantBeResolved = 1
     }
+    settings {
+        style = {$plugin.tx_zzbills_bills.settings.style}
+    }
 }
 
 page {
