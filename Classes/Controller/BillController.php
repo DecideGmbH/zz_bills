@@ -35,6 +35,7 @@ class BillController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     {
         $this->billRepository = $billRepository;
     }
+    
     public function initializeCreateAction()
     {
         if ($this->arguments->hasArgument('newBill')) {
@@ -100,7 +101,6 @@ class BillController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $user = \nn\t3::FrontendUser()->getCurrentUser();
         $this->view->assign('user', $user);
         $this->view->assign('number', $number);
-        return $this->htmlResponse();
         return $this->htmlResponse();
     }
 

@@ -59,7 +59,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
                                 <f:for each="{bills}" as="bill">
                                     <tr>
                                         <td>{bill.number}</td>
-                                        <td>{bill.summBrutto} €</td>
+                                        <td>{bill.summBrutto->f:format.number()} €</td>
                                         <td>{bill.date -> f:format.date()}</td>
                                         <td class="table-action">
                                             <f:link.action action="show" arguments="{bill : bill}" class="action-icon" target="_blank"><i class="mdi mdi-eye"></i></f:link.action>

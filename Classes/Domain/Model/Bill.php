@@ -414,7 +414,7 @@ class Bill extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getIsStorno()
     {
-        if(str_contains($this->getNumber(),"-S")){
+        if($this->endsWith($this->getNumber(),"-S")){
             return true;
         } else {
             return false;
@@ -428,7 +428,7 @@ class Bill extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getStornoPossible()
     {
-        if(str_contains($this->getNumber(),"-S")){
+        if($this->getIsStorno()){
             return false;
         } else {
             $billRepository = \nn\t3::injectClass( \Zz\ZzBills\Domain\Repository\BillRepository::class );
@@ -439,5 +439,14 @@ class Bill extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
                 return false;
             }
         }
+    }
+    
+    public function endsWith($string, $endString)
+    {
+        $len = strlen($endString);
+        if ($len == 0) {
+            return true;
+        }
+        return (substr($string, -$len) === $endString);
     }
 }

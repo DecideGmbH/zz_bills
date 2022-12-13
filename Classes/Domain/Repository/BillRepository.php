@@ -20,6 +20,11 @@ namespace Zz\ZzBills\Domain\Repository;
 class BillRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
     
+    protected $defaultOrderings =
+    array(
+        'crdate' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+        'number' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+    );
 
     public function countByFestivalAndPrefix($prefix,$festival)
     {
