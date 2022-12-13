@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#newBill').each(function() {
+    $('#billForm').each(function() {
         
         var $form = $(this);
         var removeChild = function(e) {
@@ -23,6 +23,8 @@ $(document).ready(function() {
             // console.log('sparepart', $sparepart);
             // console.log('model.btn', $sparepart.find('.btn-add-new-spareparts'));
             $sparepart.find('.btn-remove-child').click(removeChild);
+            $form.find('.btn-remove-child').click(removeChild);
+            
             // $.validate({
                 // lang: language
                 // ,language: $.formUtils.LANG[language]
@@ -30,7 +32,6 @@ $(document).ready(function() {
             // });
             return false;
         };
-
         $form.find('.btn-remove-child').click(removeChild);
         $form.find('.btn-add-new-child').click(addChild);
     });

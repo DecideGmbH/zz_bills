@@ -35,7 +35,6 @@ class BillController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     {
         $this->billRepository = $billRepository;
     }
-    
     public function initializeCreateAction()
     {
         if ($this->arguments->hasArgument('newBill')) {
@@ -140,7 +139,7 @@ class BillController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $this->billRepository->update($bill);
         $this->redirect('list');
     }
-    
+
     /**
      * action delete
      *
@@ -149,16 +148,18 @@ class BillController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function deleteAction(\Zz\ZzBills\Domain\Model\Bill $bill)
     {
         $storno = $this->deepcopy($bill);
-        $storno->setNumber($storno->getNumber()."-S");
-        foreach($storno->getBillPosts() as $post) {
-            $post->setSinglePrice($post->getSinglePrice()*-1);
+        $storno->setNumber($storno->getNumber() . "-S");
+        foreach ($storno->getBillPosts() as $post) {
+            $post->setSinglePrice($post->getSinglePrice() * -1);
         }
         $this->billRepository->add($storno);
-        
         $this->addFlashMessage('Storno wurde erstellt.', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
         $this->redirect('list');
     }
-    
+
+    /**
+     * @param $object
+     */
     private function deepcopy($object)
     {
         $clone = $this->objectManager->get(get_class($object));
@@ -166,11 +167,11 @@ class BillController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         foreach ($properties as $propertyName => $propertyValue) {
             if ($propertyValue instanceof \TYPO3\CMS\Extbase\Persistence\ObjectStorage) {
                 $v = $this->objectManager->get(\TYPO3\CMS\Extbase\Persistence\ObjectStorage::class);
-                foreach($propertyValue as $subObject) {
+                foreach ($propertyValue as $subObject) {
                     $subClone = $this->deepcopy($subObject);
                     $v->attach($subClone);
                 }
-            } else { 
+            } else {
                 $v = $propertyValue;
             }
             if ($v !== null) {

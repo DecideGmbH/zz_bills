@@ -16,11 +16,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'number,recipient_company,recipient_name,recipient_address,recipient_zip,recipient_city,recipient_mail,recipient_phone',
+        'searchFields' => 'number,recipient_company,recipient_name,recipient_address,recipient_zip,recipient_city,recipient_mail,recipient_phone,comment',
         'iconfile' => 'EXT:zz_bills/Resources/Public/Icons/tx_zzbills_domain_model_bill.gif'
     ],
     'types' => [
-        '1' => ['showitem' => 'number, date, recipient_company, recipient_name, recipient_address, recipient_zip, recipient_city, recipient_mail, recipient_phone, data, bill_posts, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '1' => ['showitem' => 'number, date, recipient_company, recipient_name, recipient_address, recipient_zip, recipient_city, recipient_mail, recipient_phone, data, comment, bill_posts, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language, sys_language_uid, l10n_parent, l10n_diffsource, --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -235,6 +235,16 @@ return [
                 ]
             ),
             
+        ],
+        'comment' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:zz_bills/Resources/Private/Language/locallang_db.xlf:tx_zzbills_domain_model_bill.comment',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+                'default' => ''
+            ],
         ],
         'bill_posts' => [
             'exclude' => true,

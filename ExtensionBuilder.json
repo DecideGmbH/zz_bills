@@ -153,6 +153,18 @@
                             "propertyName": "data",
                             "propertyType": "File",
                             "uid": "1644467341378"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": false,
+                            "propertyIsRequired": false,
+                            "propertyName": "comment",
+                            "propertyType": "String",
+                            "uid": "80720894854"
                         }
                     ]
                 },
@@ -298,7 +310,7 @@
             "disableVersioning": false,
             "generateDocumentationTemplate": false,
             "generateEditorConfig": false,
-            "generateEmptyGitRepository": false,
+            "generateEmptyGitRepository": true,
             "sourceLanguage": "en",
             "state": "alpha",
             "targetVersion": "11.5.0-11.5.99",
@@ -319,8 +331,8 @@
         "plugins": [
             {
                 "actions": {
-                    "controllerActionCombinations": "Bill=> list,show,new,create,edit,update,delte",
-                    "noncacheableActions": "Bill => list,show,new,create,edit,update,delte"
+                    "controllerActionCombinations": "Bill=> list,show,new,create,edit,update,delete",
+                    "noncacheableActions": "Bill => list,show,new,create,edit,update,delete"
                 },
                 "description": "Rechnungsplugin",
                 "key": "bills",
@@ -343,10 +355,10 @@
             }
         }
     ],
-    "storagePath": "\/home\/www\/p601362\/html\/typo3\/typo3conf\/ext\/",
+    "storagePath": "\/home\/www\/p616441\/html\/typo3-orga\/typo3conf\/ext\/",
     "log": {
-        "last_modified": "2022-09-30 12:22",
-        "extension_builder_version": "11.0.3",
-        "be_user": " (4)"
+        "last_modified": "2022-12-13 10:31",
+        "extension_builder_version": "11.0.8",
+        "be_user": " (3)"
     }
 }

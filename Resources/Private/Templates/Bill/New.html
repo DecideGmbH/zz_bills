@@ -25,7 +25,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
         <div class="col-12">
             <f:flashMessages />
             <f:render partial="FormErrors" />
-            <f:form action="create" name="newBill" id="newBill" object="{newBill}" enctype="multipart/form-data">
+            <f:form action="create" name="newBill" id="billForm" object="{newBill}" enctype="multipart/form-data">
                 <f:render partial="Bill/FormFields" arguments="{_all}" />
             </f:form>
             <div class="child-container d-none">

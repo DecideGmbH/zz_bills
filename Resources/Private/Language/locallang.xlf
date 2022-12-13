@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:zz_bills/Resources/Private/Language/locallang.xlf" date="2022-09-30T12:22:01Z" product-name="zz_bills">
+	<file source-language="en" datatype="plaintext" original="EXT:zz_bills/Resources/Private/Language/locallang.xlf" date="2022-12-13T10:31:02Z" product-name="zz_bills">
 		<header/>
 		<body>
 			<trans-unit id="tx_zzbills_domain_model_bill" resname="tx_zzbills_domain_model_bill">
@@ -35,6 +35,9 @@
 			</trans-unit>
 			<trans-unit id="tx_zzbills_domain_model_bill.data" resname="tx_zzbills_domain_model_bill.data">
 				<source>Data</source>
+			</trans-unit>
+			<trans-unit id="tx_zzbills_domain_model_bill.comment" resname="tx_zzbills_domain_model_bill.comment">
+				<source>Comment</source>
 			</trans-unit>
 			<trans-unit id="tx_zzbills_domain_model_bill.bill_posts" resname="tx_zzbills_domain_model_bill.bill_posts">
 				<source>Bill Posts</source>

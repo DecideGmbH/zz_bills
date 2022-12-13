@@ -39,6 +39,10 @@
 				<source></source>
 				<target>Telefonnummer</target>
 			</trans-unit>
+            <trans-unit id="tx_zzbills_domain_model_bill.comment" resname="tx_zzbills_domain_model_bill.comment">
+				<source></source>
+				<target>Kommentar</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

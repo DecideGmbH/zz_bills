@@ -250,6 +250,27 @@ class BillTest extends UnitTestCase
     /**
      * @test
      */
+    public function getCommentReturnsInitialValueForString(): void
+    {
+        self::assertSame(
+            '',
+            $this->subject->getComment()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function setCommentForStringSetsComment(): void
+    {
+        $this->subject->setComment('Conceived at T3CON10');
+
+        self::assertEquals('Conceived at T3CON10', $this->subject->_get('comment'));
+    }
+
+    /**
+     * @test
+     */
     public function getBillPostsReturnsInitialValueForPost(): void
     {
         $newObjectStorage = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();

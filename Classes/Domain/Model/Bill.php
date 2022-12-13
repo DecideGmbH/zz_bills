@@ -92,6 +92,13 @@ class Bill extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $data = null;
 
     /**
+     * comment
+     *
+     * @var string
+     */
+    protected $comment = '';
+
+    /**
      * billPosts
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Zz\ZzBills\Domain\Model\Post>
@@ -406,7 +413,7 @@ class Bill extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->recipientCompany = $recipientCompany;
     }
-    
+
     /**
      * storno
      *
@@ -414,13 +421,13 @@ class Bill extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getIsStorno()
     {
-        if($this->endsWith($this->getNumber(),"-S")){
+        if ($this->endsWith($this->getNumber(), "-S")) {
             return true;
         } else {
             return false;
         }
     }
-    
+
     /**
      * Is Storno possible
      *
@@ -428,25 +435,50 @@ class Bill extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getStornoPossible()
     {
-        if($this->getIsStorno()){
+        if ($this->getIsStorno()) {
             return false;
         } else {
-            $billRepository = \nn\t3::injectClass( \Zz\ZzBills\Domain\Repository\BillRepository::class );
+            $billRepository = \nn\t3::injectClass(\Zz\ZzBills\Domain\Repository\BillRepository::class);
             $count = $billRepository->countByNumberStorno($this->getNumber());
-            if($count <= 1) {
+            if ($count <= 1) {
                 return true;
             } else {
                 return false;
             }
         }
     }
-    
+
+    /**
+     * @param $string
+     * @param $endString
+     */
     public function endsWith($string, $endString)
     {
         $len = strlen($endString);
         if ($len == 0) {
             return true;
         }
-        return (substr($string, -$len) === $endString);
+        return substr($string, -$len) === $endString;
+    }
+
+    /**
+     * Returns the comment
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * Sets the comment
+     *
+     * @param string $comment
+     * @return void
+     */
+    public function setComment(string $comment)
+    {
+        $this->comment = $comment;
     }
 }

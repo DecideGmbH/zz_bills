@@ -19,26 +19,32 @@ namespace Zz\ZzBills\Domain\Repository;
  */
 class BillRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-    
-    protected $defaultOrderings =
-    array(
-        'crdate' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
-        'number' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+    protected $defaultOrderings = array(
+    'crdate' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+    'number' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
     );
 
-    public function countByFestivalAndPrefix($prefix,$festival)
+    /**
+     * @param $prefix
+     * @param $festival
+     */
+    public function countByFestivalAndPrefix($prefix, $festival)
     {
         $query = $this->createQuery();
         $query->getQuerySettings()->setRespectStoragePage(false);
         $query->matching($query->equals('festival', $festival));
-        $query->matching($query->like('number', "%-".$prefix."-%"));
+        $query->matching($query->like('number', "%-" . $prefix . "-%"));
         return $query->execute()->count();
     }
-    
-    public function countByNumberStorno($number) {
+
+    /**
+     * @param $number
+     */
+    public function countByNumberStorno($number)
+    {
         $query = $this->createQuery();
         $query->getQuerySettings()->setRespectStoragePage(false);
-        $query->matching($query->like('number', "%".$number."%"));
+        $query->matching($query->like('number', "%" . $number . "%"));
         return $query->execute()->count();
     }
 }

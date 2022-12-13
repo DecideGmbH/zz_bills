@@ -9,6 +9,7 @@ CREATE TABLE tx_zzbills_domain_model_bill (
 	recipient_mail varchar(255) NOT NULL DEFAULT '',
 	recipient_phone varchar(255) NOT NULL DEFAULT '',
 	data int(11) unsigned NOT NULL DEFAULT '0',
+	comment varchar(255) NOT NULL DEFAULT '',
 	bill_posts int(11) unsigned NOT NULL DEFAULT '0'
 );
 
